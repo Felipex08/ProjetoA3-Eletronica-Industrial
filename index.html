@@ -21,33 +21,42 @@
             <h2 id="Circito1" class="titulo-circuitos">1º Circuito</h2>
 
             <span class="transversal">Indique o valor do 1º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor1" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do 2º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor2" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do 3º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor3" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do 4º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor4" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do 5º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor5" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do 6º resistor (Ω):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="resistor6" class="transversal" type="text">
 
             <span class="transversal">Indique o valor do gerador (V):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <input id="gerador" class="transversal" type="text">
 
-            <span class="transversal">Indique o valor do receptor ():</span>
-            <input class="input__btn" id="area" type="text">
+            <span class="transversal">Indique o valor do receptor (V):</span>
+            <input class="input__btn" id="receptor" type="text">
 
             <button id="btnCalcula" class="btnCalcula" onclick="CalculaCircuito1();">CALCULAR</button>
 
             <div class="principal__content-result">
-                <span id="respostaTensao" class="principal__valor-tensao">
+                <span id="respostaCorrenteTotal" class="principal__valor-tensao">
+            </div>
+            <div class="principal__content-result">
+                <span id="respostaCorrenteCadaResistor" class="principal__valor-tensao">
+            </div>
+            <div class="principal__content-result">
+                <span id="respostaPotenciaCadaElemento" class="principal__valor-tensao">
+            </div>
+            <div class="principal__content-result">
+                <span id="respostaPotenciaGerador" class="principal__valor-tensao">
             </div>
         </section>
 
