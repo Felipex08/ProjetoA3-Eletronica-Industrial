@@ -229,3 +229,16 @@ footer > p{
 .titulo-inputs {
     margin-top: 15px;
 }
+
+.checkbox-diodo {
+    padding-left: 5px;
+    font-size: 25px;
+}
+
+#tipoDiodo1 {
+    margin-right: 10px;
+}
+
+#tipoDiodo2 {
+    margin-right: 10px;
+}

@@ -12,13 +12,14 @@
 
 <body>
     <header>
-        <h1>Projeto A3 Eletrônica Industrial</h1>
+        <h1>Projeto A3 - Eletrônica Industrial</h1>
     </header>
 
     <main>
         <section class="circuito-1">
             <br>
             <h2 id="Circito1" class="titulo-circuitos">1º Circuito</h2>
+            <h3>Os Resistores do circuito abaixo estão em série.</h3>
 
             <span class="transversal">Indique o valor do 1º resistor (Ω):</span>
             <input id="resistor1" class="transversal" type="text">
@@ -66,23 +67,52 @@
         <section class="circuito-2">
             <h2 id="Circito2" class="titulo-circuitos">2º Circuito</h2>
 
-            <span class="transversal">Indique o valor do retificador em ponte (V):</span>
-            <input id="resistencia" class="transversal" type="text">
+            <span class="transversal">Indique o valor do gerador (V):</span>
+            <input id="geradorCircuito2" class="transversal" type="text">
 
-            <span class="transversal">Indique o valor do filtro capacitivo (F):</span>
-            <input class="input__btn" id="area" type="text">
+            <span class="transversal">Indique o valor do transformador N1:</span>
+            <input id="transformador1" class="transversal" type="text">
+
+            <span class="transversal">Indique o valor do transformador N2:</span>
+            <input id="transformador2" class="transversal" type="text">
+
+            <span class="transversal">Indique a quantidade de diodos:</span>
+            <input id="quantidadeDiodo" class="transversal" type="text">
+
+            <span class="transversal">Selecione o tipo do diodo utilizado:</span>
+            <div class="checkbox-diodo">
+                <input id="tipoDiodo1" type="radio" name="Diodo" value="silicio">Silício
+                <br>
+                <input id="tipoDiodo2" type="radio" name="Diodo" value="germanio">Germânio
+            </div>
+            
+
+            <span class="transversal">Indique o valor do Capacitor (F):</span>
+            <input id="capacitor" class="transversal" type="text">
+
+            <span class="transversal">Indique o valor da resistência Capacitor (Ω):</span>
+            <input id="resistenciaCapacitor" class="transversal" type="text">
+
+            <span class="transversal">Indique o valor da frequência na carga (Hz):</span>
+            <input class="input__btn" id="frequenciaCarga" type="text">
 
             <button id="btnCalcula" class="btnCalcula" onclick="CalculaCircuito2();">CALCULAR</button>
-
+            
             <div class="principal__content-result">
-                <span id="respostaTensao" class="principal__valor-tensao">
+                <span id="respostaTensaoPicoCapacitor" class="principal__valor-tensao">
+            </div>
+            <div class="principal__content-result">
+                <span id="respostaTensaoRipple" class="principal__valor-tensao">
+            </div>
+            <div class="principal__content-result">
+                <span id="respostaTensaoMediaNaCarga" class="principal__valor-tensao">
             </div>
         </section>
     </main>
 
     <footer>
         <p>
-            Desenvolvido por Nome a pensar
+            Desenvolvido por Equipe Resistence
         </p>
     </footer>
 </body>

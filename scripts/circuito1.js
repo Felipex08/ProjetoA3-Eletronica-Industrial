@@ -91,7 +91,8 @@ function CalculaCircuito1() {
     var PotenciaGerador = PGerador.toFixed(2).replace(".", ",");
 
     document.querySelector("#respostaCorrenteTotal").innerHTML = "Resultado: O valor da Corrente Total do circuito é: " + correnteTotal + " A.";
-    document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: Resistor 1: " + correnteResistor1 + " A. | " + "Resistor 2: " + correnteResistor2 + " A. | " + "Resistor 3: " + correnteResistor3 + " A. | " + "Resistor 4: " + correnteResistor4 + " A. | " + "Resistor 5: " + correnteResistor5 + " A. | " + "Resistor 6: " + correnteResistor6 + " A.";
+    //document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: Resistor 1: " + correnteResistor1 + " A. | " + "Resistor 2: " + correnteResistor2 + " A. | " + "Resistor 3: " + correnteResistor3 + " A. | " + "Resistor 4: " + correnteResistor4 + " A. | " + "Resistor 5: " + correnteResistor5 + " A. | " + "Resistor 6: " + correnteResistor6 + " A.";
+    document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: R1 = R2 = R3 = R4 = R5 = R6 = " + correnteResistor1 + " A.";
     document.querySelector("#respostaPotenciaCadaElemento").innerHTML = "Resultado: O valor da Potência no Resistor 1: " + PotenciaResistor1 + " W. | " + "Resistor 2: " + PotenciaResistor2 + " W. | " + "Resistor 3: " + PotenciaResistor3 + " W. | " + "Resistor 4: " + PotenciaResistor4 + " W. | " + "Resistor 5: " + PotenciaResistor5 + " W. | " + "Resistor 6: " + PotenciaResistor6 + " W. | " + "Receptor: " + PotenciaReceptor + " W.";
     document.querySelector("#respostaPotenciaGerador").innerHTML = "Resultado: O valor da Potência produzida pelo Gerador é: " + PotenciaGerador + " W.";
 }
