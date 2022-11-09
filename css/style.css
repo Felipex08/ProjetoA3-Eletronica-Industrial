@@ -66,14 +66,11 @@ main {
     margin-left: 10px;
     border: none;
     border-radius: 5px;
-
     height: 40px;
     width: 140px;
-
     font-size: 14px;
     font-style: bold;
     color: var(--cor0);
-
     background-color: var(--cor1);
 }
 
@@ -81,14 +78,11 @@ main {
     margin-left: 10px;
     border: none;
     border-radius: 5px;
-
     height: 40px;
     width: 140px;
-
     font-size: 14px;
     font-style: bold;
     color: var(--cor0);
-
     background-color: var(--corForteHover);
     transition: 0.4s;
 }
@@ -97,14 +91,11 @@ main {
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-
     height: 30px;
     width: 255px;
-
     font-size: 14px;
     font-style: bold;
     color: var(--cor0);
-
     background-color: var(--cor1);
 }
 
@@ -112,14 +103,11 @@ main {
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-
     height: 30px;
     width: 255px;
-
     font-size: 14px;
     font-style: bold;
     color: var(--cor0);
-
     background-color: var(--corForteHover);
     transition: 0.4s;
 }
@@ -169,7 +157,6 @@ main {
 
 .div-lado-a-lado{
     display: inline-block;
-
     vertical-align: top; /* <---- this */
 }
 
@@ -210,9 +197,7 @@ footer > p{
     margin: 5px 0;
     height: 25px;
     width: 200px;
-
     padding: 5px;
-
     font-size: 1rem;
 }
 
@@ -220,9 +205,7 @@ footer > p{
     margin: 5px 0;
     height: 25px;
     width: 200px;
-
     padding: 5px;
-
     font-size: 1rem;
 }
 
@@ -230,7 +213,7 @@ footer > p{
     margin-top: 15px;
 }
 
-.checkbox-diodo {
+.checkbox {
     padding-left: 5px;
     font-size: 25px;
 }
@@ -241,4 +224,22 @@ footer > p{
 
 #tipoDiodo2 {
     margin-right: 10px;
+}
+
+#tipoRetificador1 {
+    margin-right: 10px;
+}
+
+#tipoRetificador2 {
+    margin-right: 10px;
+}
+
+.corpo-do-circuito1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imagem-circuito1 {
+    margin-left: 25px;
 }

@@ -3,6 +3,7 @@ function CalculaCircuito2() {
     const tensaoGermanio = 0.3;
 
     var gerador = document.querySelector("#geradorCircuito2");
+    var tipoRetificador = document.querySelector('input[name="Retificador"]:checked');
     var transformadorN1 = document.querySelector("#transformador1");
     var transformadorN2 = document.querySelector("#transformador2");
     var quantidadeDiodo = document.querySelector("#quantidadeDiodo");
@@ -12,6 +13,7 @@ function CalculaCircuito2() {
     var frequenciaCarga = document.querySelector("#frequenciaCarga");
 
     var geradorValue = gerador.value;
+    var tipoRetificadorValue = tipoRetificador.value;
     var transformadorN1Value = transformadorN1.value;
     var transformadorN2Value = transformadorN2.value;
     var quantidadeDiodoValue = quantidadeDiodo.value;
@@ -44,7 +46,12 @@ function CalculaCircuito2() {
 
     // Tensão de Ripple:
     var correnteMedia = tensaoPicoCapacitor / resistenciaCapacitorValor;
-    var tensaoRipple = correnteMedia / (capacitorValor * 2 * frequenciaCargaValor);
+
+    if(tipoRetificadorValue == "meia-onda") {
+        var tensaoRipple = correnteMedia / (capacitorValor * frequenciaCargaValor);
+    } else {
+        var tensaoRipple = correnteMedia / (capacitorValor * 2 * frequenciaCargaValor);
+    }
 
     var Von = tensaoRipple.toFixed(2).replace(".", ",");
 
