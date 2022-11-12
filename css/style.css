@@ -243,3 +243,17 @@ footer > p{
 .imagem-circuito1 {
     margin-left: 25px;
 }
+
+.desenhoCircuito {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.entradaBotao {
+    height: 40px;
+    padding: 5px;
+    margin-top: 60px;
+    font-size: 24px;
+}

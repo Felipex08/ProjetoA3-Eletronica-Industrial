@@ -1,135 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculos Eletrônica Industrial</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="scripts/circuito1.js"></script>
-    <script src="scripts/circuito2.js"></script>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="css/estiloPaginaInicial.css">
 </head>
 
+<header>
+    <h1>Projeto Resistence</h1>
+</header>
+ <nav>
+     <ul>
+    <li><a href="index.html">Página Inicial</a></li>
+    <li><a href="eletronicaIndustrial.html" target="_blank">Eletrônica Industrial</a></li>
+    <li><a href="sistemasDigitais.html" target="_blank">Sistemas Digitais</a></li>
+    </ul>
+</nav>
 <body>
-    <header>
-        <h1>Projeto A3 - Eletrônica Industrial</h1>
-    </header>
-
-    <main>
-        <section class="circuito-1">
-            <br>
-            <h2 id="Circito1" class="titulo-circuitos">1º Circuito</h2>
-            <h3>Os Resistores do circuito abaixo estão em série.</h3>
-
-            <div class="corpo-do-circuito1">
-                <div class="inputs-valores">
-                    <span class="transversal">Indique o valor do 1º resistor (Ω):</span>
-                    <input id="resistor1" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do 2º resistor (Ω):</span>
-                    <input id="resistor2" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do 3º resistor (Ω):</span>
-                    <input id="resistor3" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do 4º resistor (Ω):</span>
-                    <input id="resistor4" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do 5º resistor (Ω):</span>
-                    <input id="resistor5" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do 6º resistor (Ω):</span>
-                    <input id="resistor6" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do gerador (V):</span>
-                    <input id="gerador" class="transversal" type="text">
-    
-                    <span class="transversal">Indique o valor do receptor (V):</span>
-                    <input class="input__btn" id="receptor" type="text">
-    
-                    <button id="btnCalcula" class="btnCalcula" onclick="CalculaCircuito1();">CALCULAR</button>
-                </div>
-                
-                <div class="imagem-circuito1">
-                    <img src="./assets/imagem-exemplo-circuito1.png" alt="imagem-circuito1">
-                </div>
-            </div>
-
-            <div class="principal__content-result">
-                <span id="respostaCorrenteTotal" class="principal__valor-tensao">
-            </div>
-            <div class="principal__content-result">
-                <span id="respostaCorrenteCadaResistor" class="principal__valor-tensao">
-            </div>
-            <div class="principal__content-result">
-                <span id="respostaPotenciaCadaElemento" class="principal__valor-tensao">
-            </div>
-            <div class="principal__content-result">
-                <span id="respostaPotenciaGerador" class="principal__valor-tensao">
-            </div>
-        </section>
-
-        <hr class="divider" />
+    <div class="estilo">
+        <div class="paragrafo1">
+            <p>
+                Bem-vindos ao projeto Resistence. 
+            </p>
+        </div>
         <br>
-
-        <section class="circuito-2">
-            <h2 id="Circito2" class="titulo-circuitos">2º Circuito</h2>
-
-            <span class="transversal">Indique o valor do gerador (V):</span>
-            <input id="geradorCircuito2" class="transversal" type="text">
-
-            <span class="transversal">Selecione o tipo do retificador utilizado:</span>
-            <div class="checkbox">
-                <input id="tipoRetificador1" type="radio" name="Retificador" value="meia-onda">Retificador de meia onda
-                <br>
-                <input id="tipoRetificador2" type="radio" name="Retificador" value="onda-completa">Retificador de onda completa
-            </div>
-
-            <span class="transversal">Indique o valor do transformador N1:</span>
-            <input id="transformador1" class="transversal" type="text">
-
-            <span class="transversal">Indique o valor do transformador N2:</span>
-            <input id="transformador2" class="transversal" type="text">
-
-            <span class="transversal">Indique a quantidade de diodos:</span>
-            <input id="quantidadeDiodo" class="transversal" type="text">
-
-            <span class="transversal">Selecione o tipo do diodo utilizado:</span>
-            <div class="checkbox">
-                <input id="tipoDiodo1" type="radio" name="Diodo" value="silicio">Silício
-                <br>
-                <input id="tipoDiodo2" type="radio" name="Diodo" value="germanio">Germânio
-            </div>
-            
-
-            <span class="transversal">Indique o valor do Capacitor (F):</span>
-            <input id="capacitor" class="transversal" type="text">
-
-            <span class="transversal">Indique o valor da resistência Capacitor (Ω):</span>
-            <input id="resistenciaCapacitor" class="transversal" type="text">
-
-            <span class="transversal">Indique o valor da frequência na carga (Hz):</span>
-            <input class="input__btn" id="frequenciaCarga" type="text">
-
-            <button id="btnCalcula" class="btnCalcula" onclick="CalculaCircuito2();">CALCULAR</button>
-            
-            <div class="principal__content-result">
-                <span id="respostaTensaoPicoCapacitor" class="principal__valor-tensao">
-            </div>
-            <div class="principal__content-result">
-                <span id="respostaTensaoRipple" class="principal__valor-tensao">
-            </div>
-            <div class="principal__content-result">
-                <span id="respostaTensaoMediaNaCarga" class="principal__valor-tensao">
-            </div>
-        </section>
-    </main>
-
-    <footer>
         <p>
-            Desenvolvido por Equipe Resistence
+            Objetivo do projeto!!
         </p>
-    </footer>
+        <br>
+        <p>
+            Para acessar a página de Sistemas Digitais, basta utilizar o menu e selecionar 'Sistemas Digitais'.
+        </p>
+        <br>
+        <p>
+            Para acessar a página de Eletrônica Industrial, basta utilizar o menu e selecionar 'Eletrônica Industrial'.
+        </p>
+        <br>
+        <p>
+            Esperamos que você tenha uma ótima experiência e conte conosco para te auxiliar da melhor maneira possível. 
+        </p>
+</div>
+
 </body>
+
+<footer>
+    <p>
+        Desenvolvido pela Equipe Resistence.
+    </p>
+</footer>
 
 </html>
