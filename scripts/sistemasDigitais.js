@@ -17,6 +17,23 @@ function CriaLed(acesso, posicaoInicialX, posicaoInicialY, canvas) {
     pincel.fillRect(posicaoInicialX - 20, posicaoInicialY, 40, 1);
 }
 
+function CriaTodosCircuitos() {
+    CriaCircuito1();
+    CriaLed(1, 552, 50, "#canvasCircuito1");
+    CriaCircuito2();
+    CriaLed(0, 552, 48, "#canvasCircuito2");
+    CriaCircuito3();
+    CriaLed(1, 552, 48, "#canvasCircuito3");
+    CriaCircuito4();
+    CriaLed(0, 552, 47, "#canvasCircuito4");
+    CriaCircuito5();
+    CriaLed(1, 552, 47, "#canvasCircuito5");
+    CriaCircuito6();
+    CriaLed(0, 552, 47, "#canvasCircuito6");
+    CriaCircuito7();
+    CriaLed(1, 552, 47, "#canvasCircuito7");
+}
+
 // ----------- Circuito 1 --------------
 
 function BotaoBoleanoCircuito1() {
@@ -403,6 +420,194 @@ function CriaCircuito5() {
     pincel.fillRect(0, 125, 245, 3);
 
     pincel.fillStyle = "black";
+    pincel.beginPath();
+    pincel.moveTo(260, 75);
+    pincel.lineTo(240, 5);
+    pincel.lineTo(330, 75);
+    pincel.lineTo(240, 145);
+    pincel.lineTo(260, 75);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(340, 75, 10, 2 * Math.PI, 0);
+    pincel.fill();
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(350, 74, 203, 3);
+}
+
+// ----------- Circuito 6 --------------
+
+function Botao1BoleanoCircuito6() {
+    var estadoBotao1 = document.querySelector("#botao1Circuito6");
+    var estadoBotaoValue1 = estadoBotao1.innerHTML;
+    var estadoBotaoValor1 = estadoBotaoValue1;
+
+    if(estadoBotaoValor1 == "1") {
+        console.log("É 1");
+        estadoBotaoValor1 = "0";
+    } else {
+        console.log("É 0");
+        estadoBotaoValor1 = "1";
+    }
+    
+    estadoBotao1.innerHTML = estadoBotaoValor1;
+
+    LogicaLigaDesligaLedCircuito6();
+}
+
+function Botao2BoleanoCircuito6() {
+    var estadoBotao2 = document.querySelector("#botao2Circuito6");
+    var estadoBotaoValue2 = estadoBotao2.innerHTML;
+    var estadoBotaoValor2 = estadoBotaoValue2;
+
+    if(estadoBotaoValor2 == "1") {
+        console.log("É 1");
+        estadoBotaoValor2 = "0";
+    } else {
+        console.log("É 0");
+        estadoBotaoValor2 = "1";
+    }
+    
+    estadoBotao2.innerHTML = estadoBotaoValor2;
+
+    LogicaLigaDesligaLedCircuito6();
+}
+
+function LogicaLigaDesligaLedCircuito6() {
+    var estadoBotao1 = document.querySelector("#botao1Circuito6");
+    var estadoBotaoValue1 = estadoBotao1.innerHTML;
+    var estadoBotaoValor1 = estadoBotaoValue1;
+
+    var estadoBotao2 = document.querySelector("#botao2Circuito6");
+    var estadoBotaoValue2 = estadoBotao2.innerHTML;
+    var estadoBotaoValor2 = estadoBotaoValue2;
+    var led;
+    
+    if(estadoBotaoValor1 == "0" && estadoBotaoValor2 == "0" || estadoBotaoValor1 == "1" && estadoBotaoValor2 == "1") {
+        led = "0";
+    } else {
+        led = "1";
+    }
+
+    if(led == "1") {
+        CriaCircuito6();
+        CriaLed(1, 552, 47, "#canvasCircuito6");
+    } else {
+        CriaCircuito6();
+        CriaLed(0, 552, 47, "#canvasCircuito6");
+    }
+}
+
+function CriaCircuito6() {
+    var tela = document.querySelector("#canvasCircuito6");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 25, 232, 3);
+    pincel.fillRect(0, 125, 232, 3);
+
+    pincel.fillStyle = "black";
+    pincel.beginPath();
+    pincel.moveTo(240, 75);
+    pincel.lineTo(230, 5);
+    pincel.lineTo(250, 75);
+    pincel.lineTo(230, 145);
+    pincel.lineTo(240, 75);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.moveTo(260, 75);
+    pincel.lineTo(240, 5);
+    pincel.lineTo(330, 75);
+    pincel.lineTo(240, 145);
+    pincel.lineTo(260, 75);
+    pincel.fill();
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(328, 74, 225, 3);
+}
+
+// ----------- Circuito 7 --------------
+
+function Botao1BoleanoCircuito7() {
+    var estadoBotao1 = document.querySelector("#botao1Circuito7");
+    var estadoBotaoValue1 = estadoBotao1.innerHTML;
+    var estadoBotaoValor1 = estadoBotaoValue1;
+
+    if(estadoBotaoValor1 == "1") {
+        console.log("É 1");
+        estadoBotaoValor1 = "0";
+    } else {
+        console.log("É 0");
+        estadoBotaoValor1 = "1";
+    }
+    
+    estadoBotao1.innerHTML = estadoBotaoValor1;
+
+    LogicaLigaDesligaLedCircuito7();
+}
+
+function Botao2BoleanoCircuito7() {
+    var estadoBotao2 = document.querySelector("#botao2Circuito7");
+    var estadoBotaoValue2 = estadoBotao2.innerHTML;
+    var estadoBotaoValor2 = estadoBotaoValue2;
+
+    if(estadoBotaoValor2 == "1") {
+        console.log("É 1");
+        estadoBotaoValor2 = "0";
+    } else {
+        console.log("É 0");
+        estadoBotaoValor2 = "1";
+    }
+    
+    estadoBotao2.innerHTML = estadoBotaoValor2;
+
+    LogicaLigaDesligaLedCircuito7();
+}
+
+function LogicaLigaDesligaLedCircuito7() {
+    var estadoBotao1 = document.querySelector("#botao1Circuito7");
+    var estadoBotaoValue1 = estadoBotao1.innerHTML;
+    var estadoBotaoValor1 = estadoBotaoValue1;
+
+    var estadoBotao2 = document.querySelector("#botao2Circuito7");
+    var estadoBotaoValue2 = estadoBotao2.innerHTML;
+    var estadoBotaoValor2 = estadoBotaoValue2;
+    var led;
+    
+    if(estadoBotaoValor1 == "0" && estadoBotaoValor2 == "0" || estadoBotaoValor1 == "1" && estadoBotaoValor2 == "1") {
+        led = "1";
+    } else {
+        led = "0";
+    }
+
+    if(led == "1") {
+        CriaCircuito7();
+        CriaLed(1, 552, 47, "#canvasCircuito7");
+    } else {
+        CriaCircuito7();
+        CriaLed(0, 552, 47, "#canvasCircuito7");
+    }
+}
+
+function CriaCircuito7() {
+    var tela = document.querySelector("#canvasCircuito7");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "green";
+    pincel.fillRect(0, 25, 232, 3);
+    pincel.fillRect(0, 125, 232, 3);
+
+    pincel.fillStyle = "black";
+    pincel.beginPath();
+    pincel.moveTo(240, 75);
+    pincel.lineTo(230, 5);
+    pincel.lineTo(250, 75);
+    pincel.lineTo(230, 145);
+    pincel.lineTo(240, 75);
+    pincel.fill();
+
     pincel.beginPath();
     pincel.moveTo(260, 75);
     pincel.lineTo(240, 5);
