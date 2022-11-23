@@ -27,56 +27,90 @@ function CalculaCircuito1() {
     var receptorValor = parseFloat(ConverteVirgulaEmPonto(receptorValue));
 
     // Kirchoff:
-    /*geradorValor - resistor1Valor * i - resistor2Valor * i - resistor3Valor * i - resistor4Valor * i - resistor5Valor * i - resistor6Valor * i - receptorValor == 0;
-    i * (resistor1Valor - resistor2Valor - resistor3Valor - resistor4Valor - resistor5Valor - resistor6Valor) == -(geradorValor - receptorValor) */
-    var I = (receptorValor - geradorValor) / (-resistor1Valor - resistor2Valor - resistor3Valor - resistor4Valor - resistor5Valor - resistor6Valor);
-    //var I = Math.abs(i);
-    console.log(I);
 
-    //var resistenciaRecptor = receptorValor / i;
+    // Malha 1:
+    // i1 == i2 + i3;
+    // resistor1Valor * i1 + resistor2Valor * i3 + resistor3Valor * i1 + resistor4Valor * i1 - geradorValor == 0;
+    // i1 * (resistor1Valor + resistor3Valor + resistor4Valor) + resistor2Valor * i3 == geradorValor
+    
+    // Malha 2:
+    // resistor5Valor * i2 - resistor2Valor * i3 + resistor6Valor * i2 + receptorValor == 0;
+    // i2 * (resistor5Valor + resistor6Valor) - resistor2Valor * i3 == -receptorValor
+    
+    // Sistema de equações do Kirchoff:
+    // i1 - i2 == i3
+
+    // i1 * (resistor1Valor + resistor3Valor + resistor4Valor) + resistor2Valor * (i1 - i2) == geradorValor
+    // i1 * (resistor1Valor + resistor3Valor + resistor4Valor) + resistor2Valor * i1 - resistor2Valor * i2 == geradorValor
+    // i1 * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) - resistor2Valor * i2 == geradorValor
+    // i1 * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) == geradorValor + resistor2Valor * i2
+    // i1 == (geradorValor + resistor2Valor * i2) / (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)
+
+    // i2 * (resistor5Valor + resistor6Valor) - resistor2Valor * (i1 - i2) == -receptorValor
+    // i2 * (resistor5Valor + resistor6Valor) - resistor2Valor * i1 + resistor2Valor * i2 == -receptorValor
+    // i2 * (resistor5Valor + resistor6Valor + resistor2Valor) - resistor2Valor * i1 == -receptorValor
+    // i2 * (resistor5Valor + resistor6Valor + resistor2Valor) - resistor2Valor * (geradorValor + resistor2Valor * i2) / (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) == -receptorValor
+    // (i2 * (resistor5Valor + resistor6Valor + resistor2Valor)) - (resistor2Valor * (geradorValor + resistor2Valor * i2) / (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)) == -receptorValor
+
+    // i2 * (resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) - resistor2Valor * (geradorValor + resistor2Valor * i2) / (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) == -receptorValor
+    // i2 * (resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) - resistor2Valor * (geradorValor + resistor2Valor * i2) == -receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)
+    // i2 * (resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) - resistor2Valor * geradorValor - resistor2Valor * resistor2Valor * i2 == -receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)
+    // i2 * (((resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)) - resistor2Valor * resistor2Valor) - resistor2Valor * geradorValor == -receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)
+    // i2 * (((resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)) - resistor2Valor * resistor2Valor) == -receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) + resistor2Valor * geradorValor
+    // i2 == (-receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) + resistor2Valor * geradorValor) / (((resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)) - resistor2Valor * resistor2Valor);
+
+    var i2SemArredondamento = (-receptorValor * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor) + resistor2Valor * geradorValor) / (((resistor5Valor + resistor6Valor + resistor2Valor) * (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor)) - resistor2Valor * resistor2Valor);
+    var i1SemArredondamento = (geradorValor + resistor2Valor * i2SemArredondamento) / (resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor);
+    
+    var i2 = i2SemArredondamento.toFixed(2);
+    var i1 = i1SemArredondamento.toFixed(2);
+
+    var i3 = i1 - i2;
+
+    console.log(i1);
+    console.log(i2);
+    console.log(i3);
 
     // Corrente total no circuito:
     var U = geradorValor;
-    //var R = resistor1Valor + resistor2Valor + resistor3Valor + resistor4Valor + resistor5Valor + resistor6Valor;
-    //var I = U / R;
 
-    var correnteTotal = I.toFixed(2).replace(".", ",");
+    var iTotal = i1;
+    var correnteTotal = iTotal.replace(".", ",");
 
     // Corrente em cada resistor:
-    // I = I1 = I2 = I3 ....
-    var I1 = I;
-    var I2 = I;
-    var I3 = I;
-    var I4 = I;
-    var I5 = I;
-    var I6 = I;
+    // It = I1 + I2 + I3....
+    var I1 = i1;
+    var I2 = i3;
+    var I3 = i1;
+    var I4 = i1;
+    var I5 = i2;
+    var I6 = i2;
+    var IReceptor = i2;
+    var IGerador = i1;
 
-    var correnteResistor1 = I1.toFixed(2).replace(".", ",");
-    var correnteResistor2 = I2.toFixed(2).replace(".", ",");
-    var correnteResistor3 = I3.toFixed(2).replace(".", ",");
-    var correnteResistor4 = I4.toFixed(2).replace(".", ",");
-    var correnteResistor5 = I5.toFixed(2).replace(".", ",");
-    var correnteResistor6 = I6.toFixed(2).replace(".", ",");
+    var correnteResistor1 = I1.toString().replace(".", ",");
+    var correnteResistor2 = I2.toString().replace(".", ",");
+    var correnteResistor3 = I3.toString().replace(".", ",");
+    var correnteResistor4 = I4.toString().replace(".", ",");
+    var correnteResistor5 = I5.toString().replace(".", ",");
+    var correnteResistor6 = I6.toString().replace(".", ",");
 
     // Potência consumida em cada elemento do circuito:
-    var U1 = I * resistor1Valor;
-    var U2 = I * resistor2Valor;
-    var U3 = I * resistor3Valor;
-    var U4 = I * resistor4Valor;
-    var U5 = I * resistor5Valor;
-    var U6 = I * resistor6Valor;
+    var U1 = I1 * resistor1Valor;
+    var U2 = I2 * resistor2Valor;
+    var U3 = I3 * resistor3Valor;
+    var U4 = I4 * resistor4Valor;
+    var U5 = I5 * resistor5Valor;
+    var U6 = I6 * resistor6Valor;
     var UReceptor = receptorValor;
 
-    //var UT = U1 + U2 + U3 + U4 + U5 + U6 + UReceptor;
-    //console.log(UT);
-
-    var P1 = U1 * I;
-    var P2 = U2 * I;
-    var P3 = U3 * I;
-    var P4 = U4 * I;
-    var P5 = U5 * I;
-    var P6 = U6 * I;
-    var PReceptor = UReceptor * I;
+    var P1 = U1 * I1;
+    var P2 = U2 * I2;
+    var P3 = U3 * I3;
+    var P4 = U4 * I4;
+    var P5 = U5 * I5;
+    var P6 = U6 * I6;
+    var PReceptor = UReceptor * IReceptor;
 
     var PotenciaResistor1 = P1.toFixed(2).replace(".", ",");
     var PotenciaResistor2 = P2.toFixed(2).replace(".", ",");
@@ -87,12 +121,11 @@ function CalculaCircuito1() {
     var PotenciaReceptor = PReceptor.toFixed(2).replace(".", ",");
 
     // Potência produzida pelo gerador:
-    var PGerador = U * I;
-    var PotenciaGerador = PGerador.toFixed(2).replace(".", ",");
+    var PGerador = U * IGerador;
+    var PotenciaGerador = PGerador.toString().replace(".", ",");
 
     document.querySelector("#respostaCorrenteTotal").innerHTML = "Resultado: O valor da Corrente Total do circuito é: " + correnteTotal + " A.";
-    //document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: Resistor 1: " + correnteResistor1 + " A. | " + "Resistor 2: " + correnteResistor2 + " A. | " + "Resistor 3: " + correnteResistor3 + " A. | " + "Resistor 4: " + correnteResistor4 + " A. | " + "Resistor 5: " + correnteResistor5 + " A. | " + "Resistor 6: " + correnteResistor6 + " A.";
-    document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: R1 = R2 = R3 = R4 = R5 = R6 = " + correnteResistor1 + " A.";
+    document.querySelector("#respostaCorrenteCadaResistor").innerHTML = "Resultado: Resistor 1: " + correnteResistor1 + " A. | " + "Resistor 2: " + correnteResistor2 + " A. | " + "Resistor 3: " + correnteResistor3 + " A. | " + "Resistor 4: " + correnteResistor4 + " A. | " + "Resistor 5: " + correnteResistor5 + " A. | " + "Resistor 6: " + correnteResistor6 + " A.";
     document.querySelector("#respostaPotenciaCadaElemento").innerHTML = "Resultado: O valor da Potência no Resistor 1: " + PotenciaResistor1 + " W. | " + "Resistor 2: " + PotenciaResistor2 + " W. | " + "Resistor 3: " + PotenciaResistor3 + " W. | " + "Resistor 4: " + PotenciaResistor4 + " W. | " + "Resistor 5: " + PotenciaResistor5 + " W. | " + "Resistor 6: " + PotenciaResistor6 + " W. | " + "Receptor: " + PotenciaReceptor + " W.";
     document.querySelector("#respostaPotenciaGerador").innerHTML = "Resultado: O valor da Potência produzida pelo Gerador é: " + PotenciaGerador + " W.";
 }

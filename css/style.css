@@ -237,7 +237,12 @@ footer > p{
 }
 
 .imagem-circuito1 {
-    margin-left: 25px;
+    margin-left: 10px;
+}
+
+.imagem-circuito1 img {
+    height: 300px;
+    width: 720px;
 }
 
 /* Página de Sistemas Digitais */
