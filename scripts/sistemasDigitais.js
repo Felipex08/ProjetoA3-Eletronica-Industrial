@@ -93,7 +93,7 @@ function CriaLed(acesso, posicaoInicialX, posicaoInicialY, canvas) {
 
 function CriaTodosCircuitos() {
     CriaCircuito1();
-    CriaLed(1, 552, 50, "#canvasCircuito1");
+    CriaLed(1, 552, 75, "#canvasCircuito1");
     CriaCircuito2();
     CriaLed(0, 552, 48, "#canvasCircuito2");
     CriaCircuito3();
@@ -147,10 +147,10 @@ function LogicaLigaDesligaLedCircuito1() {
 
     if(led == "1") {
         CriaCircuito1();
-        CriaLed(1, 552, 50, "#canvasCircuito1");
+        CriaLed(1, 552, 75, "#canvasCircuito1");
     } else {
         CriaCircuito1();
-        CriaLed(0, 552, 50, "#canvasCircuito1");
+        CriaLed(0, 552, 75, "#canvasCircuito1");
     }
 }
 
@@ -159,17 +159,17 @@ function CriaCircuito1() {
     var pincel = tela.getContext("2d");
 
     pincel.fillStyle = "green";
-    pincel.fillRect(0, 80, 553, 3);
+    pincel.fillRect(0, 105, 553, 3);
 
     pincel.fillStyle = "black";
     pincel.beginPath();
-    pincel.moveTo(260, 60);
-    pincel.lineTo(260, 100);
-    pincel.lineTo(300, 81);
+    pincel.moveTo(260, 65);
+    pincel.lineTo(320, 105);
+    pincel.lineTo(260, 145);
     pincel.fill();
 
     pincel.beginPath();
-    pincel.arc(300, 80, 7, 2 * Math.PI, 0);
+    pincel.arc(321, 105, 10, 2 * Math.PI, 0);
     pincel.fill();
 }
 
@@ -241,14 +241,14 @@ function CriaCircuito2() {
     var pincel = tela.getContext("2d");
 
     pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 230, 3);
-    pincel.fillRect(0, 125, 230, 3);
+    pincel.fillRect(0, 25, 210, 3);
+    pincel.fillRect(0, 125, 210, 3);
 
     pincel.fillStyle = "black";
     pincel.beginPath();
     pincel.arc(260, 75, 70, 3 * Math.PI / 2, Math.PI / 2);
     pincel.fill();
-    pincel.fillRect(260 - 30, 5, 30, 140);
+    pincel.fillRect(260 - 50, 5, 50, 140);
 
     pincel.fillStyle = "green";
     pincel.fillRect(330, 75, 223, 3);
@@ -322,14 +322,14 @@ function CriaCircuito3() {
     var pincel = tela.getContext("2d");
 
     pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 230, 3);
-    pincel.fillRect(0, 125, 230, 3);
+    pincel.fillRect(0, 25, 210, 3);
+    pincel.fillRect(0, 125, 210, 3);
 
     pincel.fillStyle = "black";
     pincel.beginPath();
     pincel.arc(260, 75, 70, 3 * Math.PI / 2, Math.PI / 2);
     pincel.fill();
-    pincel.fillRect(260 - 30, 5, 30, 140);
+    pincel.fillRect(260 - 50, 5, 50, 140);
     
     pincel.beginPath();
     pincel.arc(340, 75, 10, 2 * Math.PI, 0);
@@ -406,31 +406,36 @@ function CriaCircuito4() {
     var tela = document.querySelector("#canvasCircuito4");
     var pincel = tela.getContext("2d");
 
-    pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 245, 3);
-    pincel.fillRect(0, 125, 245, 3);
-
     pincel.fillStyle = "black";
     pincel.beginPath();
-    pincel.arc(200, 75, 75, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.arc(200, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.fill();
+
+    pincel.fillRect(263, 5, 52, 140);
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, (7 * Math.PI) / 6, 2 * Math.PI);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, 2 * Math.PI, (5 * Math.PI) / 6);
+    pincel.fill();
+
+    pincel.moveTo(300, 23);
+    pincel.lineTo(390, 75);
+    pincel.lineTo(300, 128);
+    pincel.lineTo(300, 23);
     pincel.fill();
 
     pincel.fillStyle = "#d1e5fc";
     pincel.beginPath();
-    pincel.arc(200, 75, 70, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.arc(190, 75, 98, (7 * Math.PI) / 4, Math.PI / 4);
     pincel.fill();
 
-    pincel.fillStyle = "black";
-    pincel.fillRect(270, 23, 10, 120);
-
-    // pincel.moveTo(260, 75);
-    // pincel.lineTo(240, 5);
-    // pincel.lineTo(330, 75);
-    // pincel.lineTo(240, 145);
-    // pincel.lineTo(260, 75);
-
     pincel.fillStyle = "green";
-    pincel.fillRect(328, 74, 225, 3);
+    pincel.fillRect(0, 25, 274, 3);
+    pincel.fillRect(0, 125, 273, 3);
+    pincel.fillRect(390, 74, 164, 3);
 }
 
 // ----------- Circuito 5 --------------
@@ -500,25 +505,40 @@ function CriaCircuito5() {
     var tela = document.querySelector("#canvasCircuito5");
     var pincel = tela.getContext("2d");
 
-    pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 245, 3);
-    pincel.fillRect(0, 125, 245, 3);
-
     pincel.fillStyle = "black";
     pincel.beginPath();
-    pincel.moveTo(260, 75);
-    pincel.lineTo(240, 5);
-    pincel.lineTo(330, 75);
-    pincel.lineTo(240, 145);
-    pincel.lineTo(260, 75);
+    pincel.arc(200, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.fill();
+
+    pincel.fillRect(263, 5, 52, 140);
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, (7 * Math.PI) / 6, 2 * Math.PI);
     pincel.fill();
 
     pincel.beginPath();
-    pincel.arc(340, 75, 10, 2 * Math.PI, 0);
+    pincel.arc(320, 75, 70, 2 * Math.PI, (5 * Math.PI) / 6);
+    pincel.fill();
+
+    pincel.moveTo(300, 23);
+    pincel.lineTo(390, 75);
+    pincel.lineTo(300, 128);
+    pincel.lineTo(300, 23);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(400, 75, 10, 2 * Math.PI, 0);
+    pincel.fill();
+
+    pincel.fillStyle = "#d1e5fc";
+    pincel.beginPath();
+    pincel.arc(190, 75, 98, (7 * Math.PI) / 4, Math.PI / 4);
     pincel.fill();
 
     pincel.fillStyle = "green";
-    pincel.fillRect(350, 74, 203, 3);
+    pincel.fillRect(0, 25, 274, 3);
+    pincel.fillRect(0, 125, 273, 3);
+    pincel.fillRect(410, 74, 144, 3);
 }
 
 // ----------- Circuito 6 --------------
@@ -588,29 +608,46 @@ function CriaCircuito6() {
     var tela = document.querySelector("#canvasCircuito6");
     var pincel = tela.getContext("2d");
 
-    pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 232, 3);
-    pincel.fillRect(0, 125, 232, 3);
+    pincel.fillStyle = "black";
+    pincel.beginPath();
+    pincel.arc(200, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.fill();
+
+    pincel.fillRect(263, 5, 52, 140);
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, (7 * Math.PI) / 6, 2 * Math.PI);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, 2 * Math.PI, (5 * Math.PI) / 6);
+    pincel.fill();
+
+    pincel.moveTo(300, 23);
+    pincel.lineTo(390, 75);
+    pincel.lineTo(300, 128);
+    pincel.lineTo(300, 23);
+    pincel.fill();
+
+    pincel.fillStyle = "#d1e5fc";
+    pincel.beginPath();
+    pincel.arc(190, 75, 98, (7 * Math.PI) / 4, Math.PI / 4);
+    pincel.fill();
 
     pincel.fillStyle = "black";
     pincel.beginPath();
-    pincel.moveTo(240, 75);
-    pincel.lineTo(230, 5);
-    pincel.lineTo(250, 75);
-    pincel.lineTo(230, 145);
-    pincel.lineTo(240, 75);
+    pincel.arc(185, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
     pincel.fill();
 
+    pincel.fillStyle = "#d1e5fc";
     pincel.beginPath();
-    pincel.moveTo(260, 75);
-    pincel.lineTo(240, 5);
-    pincel.lineTo(330, 75);
-    pincel.lineTo(240, 145);
-    pincel.lineTo(260, 75);
+    pincel.arc(175, 75, 97, (7 * Math.PI) / 4, Math.PI / 4);
     pincel.fill();
 
     pincel.fillStyle = "green";
-    pincel.fillRect(328, 74, 225, 3);
+    pincel.fillRect(0, 25, 259, 3);
+    pincel.fillRect(0, 125, 258, 3);
+    pincel.fillRect(390, 74, 164, 3);
 }
 
 // ----------- Circuito 7 --------------
@@ -680,31 +717,48 @@ function CriaCircuito7() {
     var tela = document.querySelector("#canvasCircuito7");
     var pincel = tela.getContext("2d");
 
-    pincel.fillStyle = "green";
-    pincel.fillRect(0, 25, 232, 3);
-    pincel.fillRect(0, 125, 232, 3);
+    pincel.fillStyle = "black";
+    pincel.beginPath();
+    pincel.arc(200, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
+    pincel.fill();
+
+    pincel.fillRect(263, 5, 52, 140);
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, (7 * Math.PI) / 6, 2 * Math.PI);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(320, 75, 70, 2 * Math.PI, (5 * Math.PI) / 6);
+    pincel.fill();
+
+    pincel.moveTo(300, 23);
+    pincel.lineTo(390, 75);
+    pincel.lineTo(300, 128);
+    pincel.lineTo(300, 23);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.arc(400, 75, 10, 2 * Math.PI, 0);
+    pincel.fill();
+
+    pincel.fillStyle = "#d1e5fc";
+    pincel.beginPath();
+    pincel.arc(190, 75, 98, (7 * Math.PI) / 4, Math.PI / 4);
+    pincel.fill();
 
     pincel.fillStyle = "black";
     pincel.beginPath();
-    pincel.moveTo(240, 75);
-    pincel.lineTo(230, 5);
-    pincel.lineTo(250, 75);
-    pincel.lineTo(230, 145);
-    pincel.lineTo(240, 75);
+    pincel.arc(185, 75, 93, (7 * Math.PI)/ 4, Math.PI / 4);
     pincel.fill();
 
+    pincel.fillStyle = "#d1e5fc";
     pincel.beginPath();
-    pincel.moveTo(260, 75);
-    pincel.lineTo(240, 5);
-    pincel.lineTo(330, 75);
-    pincel.lineTo(240, 145);
-    pincel.lineTo(260, 75);
-    pincel.fill();
-
-    pincel.beginPath();
-    pincel.arc(340, 75, 10, 2 * Math.PI, 0);
+    pincel.arc(175, 75, 97, (7 * Math.PI) / 4, Math.PI / 4);
     pincel.fill();
 
     pincel.fillStyle = "green";
-    pincel.fillRect(350, 74, 203, 3);
+    pincel.fillRect(0, 25, 259, 3);
+    pincel.fillRect(0, 125, 258, 3);
+    pincel.fillRect(410, 74, 144, 3);
 }
